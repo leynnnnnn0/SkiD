@@ -8,7 +8,7 @@
     android:fontFamily="@font/poppins_regular"
     android:inputType="text"
     android:textAlignment="textStart"
-    android:textColor="@color/font_color"
+    android:textColor="@color/span_color"
     android:textSize="12sp"
     xmlns:android="http://schemas.android.com/apk/res/android"
     tools:ignore="LabelFor" />

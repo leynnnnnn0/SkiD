@@ -22,6 +22,8 @@
     <string name="additional">Additional Note (Optional)</string>
     <string name="next">Next</string>
     <string name="complete_address">Complete Address</string>
+    <string name="pick_up">Pick-up Location</string>
+    <string name="drop_off">Drop-off Location</string>
 
 
 </resources>
