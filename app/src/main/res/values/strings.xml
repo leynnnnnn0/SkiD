@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">SKID</string>
+    <string name="welcome">Welcome to</string>
+    <string name="skid">SkiD</string>
+    <string name="email">Email</string>
+    <string name="enter_email">Enter Email Address</string>
+    <string name="password">Password</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="cont">Continue</string>
+    <string name="default_string">default</string>
+    <string name="create">Create an Account</string>
+
+
+</resources>
