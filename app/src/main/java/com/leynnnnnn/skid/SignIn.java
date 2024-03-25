@@ -21,8 +21,8 @@ import java.util.Arrays;
 
 public class SignIn extends AppCompatActivity {
     DBHelper myDB = new DBHelper(this);
-    ArrayList<AccountInfo> users = new ArrayList<>();
     EditText username, password;
+    AccountInfo currentUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,9 +40,15 @@ public class SignIn extends AppCompatActivity {
         signInButton.setOnClickListener(v-> {
             Cursor cursor = myDB.doesExist(username.getText().toString());
             if(cursor != null && cursor.moveToFirst()) {
-                Toast.makeText(this, "success!!!!", Toast.LENGTH_SHORT).show();
+                currentUser = new AccountInfo(cursor.getString(0), cursor.getString(1), cursor.getString(2) );
+                if(password.getText().toString().equals(currentUser.getPassword())) {
+                    Toast.makeText(this, "Successfully Logged in.", Toast.LENGTH_SHORT).show();
+                }else {
+                    Toast.makeText(this, "Incorrect Password", Toast.LENGTH_SHORT).show();
+                }
+
             }else {
-                Toast.makeText(this, "no user found", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "No user found", Toast.LENGTH_SHORT).show();
             }
 
         });
@@ -54,13 +60,4 @@ public class SignIn extends AppCompatActivity {
         });
     }
 
-    public void verifyDetails() {
-        Cursor cursor = myDB.getUsers();
-        if (cursor != null) {
-            while(cursor.moveToNext()) {
-                users.add(new AccountInfo(cursor.getString(0), cursor.getString(1), cursor.getString(2)));
-            }
-        }
-
-    }
 }
