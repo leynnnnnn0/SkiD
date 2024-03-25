@@ -9,6 +9,8 @@
     <string name="cont">Continue</string>
     <string name="default_string">default</string>
     <string name="create">Create an Account</string>
+    <string name="username">Username</string>
+    <string name="enter_username">Enter Username</string>
 
 
 </resources>

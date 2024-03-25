@@ -29,12 +29,9 @@ public class MainActivity extends AppCompatActivity {
         logo.setAnimation(ease);
 
         // Disposing this context and showing the next page after 3 seconds
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                startActivity(new Intent(MainActivity.this, SecondPage.class));
-                finish();
-            }
+        new Handler().postDelayed(() -> {
+            startActivity(new Intent(MainActivity.this, SecondPage.class));
+            finish();
         },3000);
 
 

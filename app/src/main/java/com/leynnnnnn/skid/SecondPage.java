@@ -31,12 +31,9 @@ public class SecondPage extends AppCompatActivity {
         cardView.setAnimation(popUp);
 
         nextPageButton = findViewById(R.id.nextPageButton);
-        nextPageButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(SecondPage.this, SignIn.class));
-                finish();
-            }
+        nextPageButton.setOnClickListener(v -> {
+            startActivity(new Intent(SecondPage.this, SignIn.class));
+            finish();
         });
 
 
