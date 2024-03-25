@@ -11,6 +11,17 @@
     <string name="create">Create an Account</string>
     <string name="username">Username</string>
     <string name="enter_username">Enter Username</string>
+    <string name="hello">Hello</string>
+    <string name="me">Leynnnnnn!</string>
+    <string name="what">What are you sending today?</string>
+    <string name="food">Food Delivery</string>
+    <string name="weight">(less than 10 kg)</string>
+    <string name="cancel"><u>Cancel Order</u></string>
+    <string name="about_package">What is in the package?</string>
+    <string name="about">About Item</string>
+    <string name="additional">Additional Note (Optional)</string>
+    <string name="next">Next</string>
+    <string name="complete_address">Complete Address</string>
 
 
 </resources>

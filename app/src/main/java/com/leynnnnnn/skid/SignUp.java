@@ -1,5 +1,6 @@
 package com.leynnnnnn.skid;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -31,8 +32,8 @@ public class SignUp extends AppCompatActivity {
         createAnAccount.setOnClickListener(v -> {
             Boolean res = addNewUser(usernameInput.getText().toString(), emailInput.getText().toString(), passwordInput.getText().toString());
             if (res) {
+                startActivity(new Intent(SignUp.this, HomePage.class));
                 Toast.makeText(SignUp.this, "Account Created.", Toast.LENGTH_SHORT).show();
-                Log.d("Success", myDB.getUsers().toString());
             }else {
                 Toast.makeText(SignUp.this, "Incomplete Details.", Toast.LENGTH_SHORT).show();
             }

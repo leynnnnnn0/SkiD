@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="170dp"
+    android:layout_height="180dp"
+    android:background="@drawable/transparent_bakcground_button"
+    android:gravity="center"
+    android:layout_margin="5dp"
+    >
+
+
+    <ImageView
+        android:id="@+id/itemImage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/default_string"
+        app:srcCompat="@drawable/food" />
+
+    <TextView
+        android:id="@+id/itemType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/food"
+        android:textColor="@color/font_color"
+        android:fontFamily="@font/poppins_regular"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        />
+
+    <TextView
+        android:id="@+id/itemWeight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/weight"
+        android:textColor="@color/light_green"
+        android:gravity="center"
+        android:fontFamily="@font/poppins_regular"
+        android:textStyle="bold"
+        />
+</LinearLayout>

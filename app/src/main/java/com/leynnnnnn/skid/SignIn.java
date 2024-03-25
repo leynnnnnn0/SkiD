@@ -24,6 +24,7 @@ public class SignIn extends AppCompatActivity {
     EditText username, password;
     AccountInfo currentUser;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +43,9 @@ public class SignIn extends AppCompatActivity {
             if(cursor != null && cursor.moveToFirst()) {
                 currentUser = new AccountInfo(cursor.getString(0), cursor.getString(1), cursor.getString(2) );
                 if(password.getText().toString().equals(currentUser.getPassword())) {
+                    Intent intent = new Intent(SignIn.this, HomePage.class);
+                    intent.putExtra("use", currentUser.getUsername());
+                    startActivity(intent);
                     Toast.makeText(this, "Successfully Logged in.", Toast.LENGTH_SHORT).show();
                 }else {
                     Toast.makeText(this, "Incorrect Password", Toast.LENGTH_SHORT).show();
