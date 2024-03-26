@@ -1,6 +1,8 @@
 package com.leynnnnnn.skid;
 
-public class TransactionDetails {
+import java.io.Serializable;
+
+public class TransactionDetails implements Serializable {
     private String item;
     private String itemInfo;
     private String additionalInfo;

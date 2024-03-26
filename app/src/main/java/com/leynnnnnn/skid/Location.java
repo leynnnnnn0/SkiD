@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -33,7 +34,11 @@ public class Location extends AppCompatActivity {
             intent.putExtra("orderType", getIntent().getStringExtra("orderType"));
             intent.putExtra("itemInfo", getIntent().getStringExtra("itemInfo"));
             intent.putExtra("additionalInfo", getIntent().getStringExtra("additionalInfo"));
-            startActivity(intent);
+            if(dropOffLocation.getText().toString().isEmpty() || pickUpLocation.getText().toString().isEmpty()) {
+                Toast.makeText(this, "Please input the information needed.", Toast.LENGTH_SHORT).show();
+            }else {
+                startActivity(intent);
+            }
         });
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());

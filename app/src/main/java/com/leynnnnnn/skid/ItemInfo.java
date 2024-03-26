@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,7 +32,13 @@ public class ItemInfo extends AppCompatActivity {
             intent.putExtra("itemInfo", itemInfo.getText().toString());
             intent.putExtra("additionalInfo", itemInfo.getText().toString());
             intent.putExtra("orderType", getIntent().getStringExtra("orderType"));
-            startActivity(intent);
+
+            if(itemInfo.getText().toString().isEmpty()) {
+                Toast.makeText(this, "Pleas fill up the information needed.", Toast.LENGTH_SHORT).show();
+            }else {
+                startActivity(intent);
+            }
+
 
         });
 

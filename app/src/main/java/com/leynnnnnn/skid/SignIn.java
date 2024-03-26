@@ -39,7 +39,6 @@ public class SignIn extends AppCompatActivity {
 
         Button signInButton = findViewById(R.id.signInButton);
         signInButton.setOnClickListener(v-> {
-            startActivity(new Intent(this, HomePage.class));
             Cursor cursor = myDB.doesExist(username.getText().toString());
             if(cursor != null && cursor.moveToFirst()) {
                 currentUser = new AccountInfo(cursor.getString(0), cursor.getString(1), cursor.getString(2) );

@@ -19,6 +19,8 @@ public class VehicleSelection extends AppCompatActivity implements VehicleSelect
     VehicleInfo[] vehicles;
     VehiclesAdapter adapter;
     Button toConfirmation;
+    TransactionDetails transactionDetails;
+    int index;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,10 +41,27 @@ public class VehicleSelection extends AppCompatActivity implements VehicleSelect
         recyclerView.setAdapter(adapter);
         recyclerView.setHasFixedSize(true);
 
+        transactionDetails = new TransactionDetails(getIntent().getStringExtra("orderType"),
+                getIntent().getStringExtra("itemInfo"),
+                getIntent().getStringExtra("additionalInfo"),
+                getIntent().getStringExtra("pickUpLocation"),
+                getIntent().getStringExtra("dropOffLocation"),
+                vehicles[index].getVehicleType(),
+                vehicles[index].getRate()
+                );
+
         toConfirmation = findViewById(R.id.toConfirmation);
         toConfirmation.setOnClickListener(v -> {
             Intent intent = new Intent(getApplicationContext(), TransactionConfirmation.class);
+            intent.putExtra("orderType", getIntent().getStringExtra("orderType"));
+            intent.putExtra("pickUpLocation", getIntent().getStringExtra("pickUpLocation"));
+            intent.putExtra("dropOffLocation", getIntent().getStringExtra("dropOffLocation"));
+            intent.putExtra("vehicleType", vehicles[index].getVehicleType());
+            intent.putExtra("amount", String.valueOf(vehicles[index].getRate()));
+
             startActivity(intent);
+
+
         });
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
@@ -54,6 +73,7 @@ public class VehicleSelection extends AppCompatActivity implements VehicleSelect
 
     @Override
     public void onItemClick(int pos) {
-
+        Toast.makeText(this, vehicles[pos].getVehicleType() + " is selected.", Toast.LENGTH_SHORT).show();
+        index = pos;
     }
 }

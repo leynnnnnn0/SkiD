@@ -52,6 +52,7 @@ public class HomePage extends AppCompatActivity implements HomePageInterface {
     public void onItemClick(int position) {
         Intent intent = new Intent(this, ItemInfo.class);
         intent.putExtra("orderType", items[position].getType());
+        Toast.makeText(this, items[position].getType() + " selected.", Toast.LENGTH_SHORT).show();
         startActivity(intent);
 
     }
