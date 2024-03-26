@@ -53,9 +53,11 @@
             android:fontFamily="@font/poppins_regular"
             android:textStyle="bold"
             />
+
         <include
-            android:layout_width="match_parent"
+            android:id="@+id/itemInfo"
             layout="@layout/edit_text_layout"
+            android:layout_width="match_parent"
             android:layout_height="50dp" />
 
         <TextView
@@ -70,7 +72,7 @@
             android:textStyle="bold"/>
 
         <EditText
-            android:id="@+id/editTextTextMultiLine"
+            android:id="@+id/additionalInfo"
             android:layout_width="match_parent"
             android:layout_height="310dp"
             android:ems="10"

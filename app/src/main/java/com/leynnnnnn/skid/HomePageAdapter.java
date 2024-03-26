@@ -52,15 +52,11 @@ public class HomePageAdapter extends RecyclerView.Adapter<HomePageAdapter.ViewHo
             itemType= itemView.findViewById(R.id.itemType);
             itemWeight = itemView.findViewById(R.id.itemWeight);
 
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (homePageInterface != null) {
-                        int pos = getAdapterPosition();
-
-                        if (pos != RecyclerView.NO_POSITION) {
-                            homePageInterface.onItemClick(pos);
-                        }
+            itemView.setOnClickListener(v -> {
+                if (homePageInterface != null) {
+                    int pos = getAdapterPosition();
+                    if (pos != RecyclerView.NO_POSITION) {
+                        homePageInterface.onItemClick(pos);
                     }
                 }
             });

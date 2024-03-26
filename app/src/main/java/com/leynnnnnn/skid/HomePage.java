@@ -50,6 +50,9 @@ public class HomePage extends AppCompatActivity implements HomePageInterface {
 
     @Override
     public void onItemClick(int position) {
-        startActivity(new Intent(this, ItemInfo.class));
+        Intent intent = new Intent(this, ItemInfo.class);
+        intent.putExtra("orderType", items[position].getType());
+        startActivity(intent);
+
     }
 }

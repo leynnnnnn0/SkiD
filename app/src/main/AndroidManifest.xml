@@ -13,6 +13,9 @@
         android:theme="@style/Theme.SKID"
         tools:targetApi="31">
         <activity
+            android:name=".TransactionConfirmation"
+            android:exported="false" />
+        <activity
             android:name=".VehicleSelection"
             android:exported="false" />
         <activity

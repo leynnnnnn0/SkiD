@@ -13,16 +13,18 @@ import androidx.recyclerview.widget.RecyclerView;
 public class VehiclesAdapter extends RecyclerView.Adapter<VehiclesAdapter.ViewHolder> {
     Context context;
     VehicleInfo[] vehicles;
+    private final VehicleSelectionInterface vehicleSelectionInterface;
 
-    public VehiclesAdapter(Context context, VehicleInfo[] vehicles) {
+    public VehiclesAdapter(Context context, VehicleInfo[] vehicles, VehicleSelectionInterface vehicleSelectionInterface) {
         this.context = context;
         this.vehicles = vehicles;
+        this.vehicleSelectionInterface = vehicleSelectionInterface;
     }
     @NonNull
     @Override
     public VehiclesAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.vehicle_card_layout, parent, false);
-        return new ViewHolder(view);
+        return new ViewHolder(view, vehicleSelectionInterface);
     }
 
     @Override
@@ -42,12 +44,22 @@ public class VehiclesAdapter extends RecyclerView.Adapter<VehiclesAdapter.ViewHo
         ImageView vehicleImage;
         TextView vehicleType, vehicleSpeed, vehicleRate;
 
-        public ViewHolder(@NonNull View itemView) {
+        public ViewHolder(@NonNull View itemView, VehicleSelectionInterface vehicleSelectionInterface) {
             super(itemView);
             this.vehicleImage = itemView.findViewById(R.id.vehicleImage);
             this.vehicleType = itemView.findViewById(R.id.vehicleType);
             this.vehicleSpeed = itemView.findViewById(R.id.vehicleSpeed);
             this.vehicleRate = itemView.findViewById(R.id.vehiclePrice);
+
+            itemView.setOnClickListener(v -> {
+                if (vehicleSelectionInterface != null) {
+                    int pos = getAdapterPosition();
+
+                    if(pos != RecyclerView.NO_POSITION) {
+                        vehicleSelectionInterface.onItemClick(pos);
+                    }
+                }
+            });
         }
     }
 }

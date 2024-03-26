@@ -93,6 +93,7 @@
             android:textStyle="bold" />
 
         <include
+            android:id="@+id/dropOffLocation"
             layout="@layout/edit_text_layout"
             android:layout_width="match_parent"
             android:layout_height="50dp" />
@@ -140,6 +141,7 @@
             android:textStyle="bold" />
 
         <include
+            android:id="@+id/pickUpLocation"
             layout="@layout/edit_text_layout"
             android:layout_width="match_parent"
             android:layout_height="50dp" />
